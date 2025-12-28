@@ -1,4 +1,11 @@
-# React + Vite
+# Digital Image Processing Portfolio
+
+This project is a React + Vite application for showcasing a Digital Image Processing Portfolio.
+
+## About
+Using React/Vite on Antigravity.
+
+## React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
