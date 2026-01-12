@@ -1,0 +1,47 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Sparkles } from 'lucide-react';
+
+const Reflection = () => {
+    return (
+        <section className="w-full max-w-[800px] mx-auto py-10 px-4">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative p-8 rounded-2xl bg-white/5 border border-white/10 shadow-xl backdrop-blur-md overflow-hidden"
+            >
+                {/* Decorative background element */}
+                <div className="absolute top-0 right-0 p-4 opacity-10">
+                    <Sparkles className="w-32 h-32 text-accent" />
+                </div>
+
+                <div className="relative z-10 space-y-6">
+                    <div className="flex items-center gap-3 mb-6">
+                        <Sparkles className="text-accent w-6 h-6" />
+                        <h2 className="text-2xl font-bold text-white tracking-wide">
+                            Course Reflection
+                        </h2>
+                    </div>
+
+                    <div className="space-y-4 text-gray-300 leading-relaxed text-justify">
+                        <p>
+                            Throughout the Digital Image Processing (DIP) course, it has offered a comprehensive look into how we manipulate and interpret visual data. Throughout the semester, I learned many essential techniques such as image restoration to fix degraded visuals, enhancement to improve clarity, geometric transformations for spatial adjustments, and compression to optimize storage and transmission.
+                        </p>
+
+                        <p>
+                            Our lecturer, Dr. Nurulfajar, played a pivotal role in this experience, teaching with genuine passion and a wealth of knowledge that turned complex theories into an engaging and fun learning environment.
+                        </p>
+
+                        <p>
+                            This course has given me a clearer perspective on how this field functions in the real world, making me realize that DIP is integrated into almost every aspect of our daily lives, from the cameras in our pockets to medical imaging. I've come to understand that it is an incredibly deep field; the more I learn, the more I realize there is a vast ocean of specialized knowledge within each subdomain waiting to be explored.
+                        </p>
+                    </div>
+                </div>
+            </motion.div>
+        </section>
+    );
+};
+
+export default Reflection;
