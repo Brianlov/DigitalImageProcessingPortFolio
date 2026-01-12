@@ -1,86 +1,45 @@
 import React from 'react';
-import bgImage from '../assets/background.jpg';
-import touchBubble from '../assets/touch_bubble.png';
-import { motion, AnimatePresence } from 'framer-motion';
+import bgImage from '../assets/background.png';
 import BrushNoise from './NoiseReveal';
+import Navbar from './Navbar';
 
 const Layout = ({ children }) => {
     const [isNoiseActive, setNoiseActive] = React.useState(false);
-    const [isTitleHovered, setIsTitleHovered] = React.useState(false);
 
     return (
-        <div className="min-h-screen bg-primary text-slate-200 font-sans selection:bg-accent selection:text-primary overflow-x-hidden">
-            <BrushNoise isActive={isNoiseActive} onComplete={() => setNoiseActive(false)} />
-
-            {/* Custom Background Image */}
-            <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="h-screen w-screen overflow-hidden bg-primary relative flex items-center justify-center font-sans selection:bg-accent selection:text-primary">
+            {/* Custom Background Image - Full Screen Behind Frame */}
+            <div className="absolute inset-0 z-0">
                 <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
                     style={{ backgroundImage: `url(${bgImage})` }}
                 ></div>
-                {/* Dark Overlay for content readability */}
-                <div className="absolute inset-0 bg-black/60"></div>
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black/20"></div>
             </div>
 
-            <header className="absolute top-0 left-0 w-full p-6 z-50 pointer-events-none">
-                <div
-                    className="relative inline-block pointer-events-auto"
-                    onMouseEnter={() => setIsTitleHovered(true)}
-                    onMouseLeave={() => setIsTitleHovered(false)}
-                >
-                    <motion.h1
-                        className="text-xl md:text-3xl font-bold font-sans tracking-tight inline-block text-stroke-yellow cursor-pointer select-none"
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{
-                            duration: 5,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-                        whileHover={{
-                            scale: 1.2,
-                            textShadow: "0px 0px 8px rgb(251, 191, 36)", // Glow effect
-                            rotate: [0, -1, 1, -1, 0],
-                            transition: { duration: 0.2 }
-                        }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => setNoiseActive(true)}
-                    >
-                        Digital Image Processing Portfolio
-                    </motion.h1>
+            <BrushNoise isActive={isNoiseActive} onComplete={() => setNoiseActive(false)} />
 
-                    <AnimatePresence>
-                        {isTitleHovered && (
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.5, y: 10, x: 20 }}
-                                animate={{ opacity: 1, scale: 1, y: 0, x: 20 }}
-                                exit={{ opacity: 0, scale: 0.5, y: 10, x: 20 }}
-                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                className="absolute -bottom-[90px] -right-[100px] pointer-events-none z-50 flex items-center justify-center w-[160px] h-[120px]"
-                            >
-                                {/* Bubble Image */}
-                                <img
-                                    src={touchBubble}
-                                    alt="Touch message"
-                                    className="absolute inset-0 w-full h-full object-contain drop-shadow-lg"
-                                />
-                                {/* Text inside bubble */}
-                                <p className="relative z-10 text-black font-casual font-bold text-lg -rotate-12 mb-4 mr-2">
-                                    The power of Digital Image Processing!!!
-                                </p>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+            {/* The Big Frame */}
+            {/* The Big Frame */}
+            <div className="relative z-10 w-[95vw] h-[92vh] md:w-[90vw] md:h-[90vh] bg-gradient-to-br from-slate-200 via-slate-500 to-black rounded-[2.5rem] overflow-hidden shadow-2xl">
+
+                {/* Inner White Frame */}
+                <div className="absolute inset-[8px] bg-white rounded-[2.1rem] overflow-hidden flex flex-col text-slate-800 z-10">
+                    {/* Scrollable Content Container */}
+                    <div id="main-frame" className="flex-1 overflow-y-auto scroll-smooth scrollbar-hide">
+                        <Navbar />
+
+                        <main className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col gap-16">
+                            {children}
+                        </main>
+
+                        <footer className="relative z-10 text-center py-8 text-slate-500 text-sm">
+                            <p>&copy; {new Date().getFullYear()} Brian | Digital Image Processing Portfolio</p>
+                        </footer>
+                    </div>
                 </div>
-            </header>
-
-
-            <main className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col gap-16">
-                {children}
-            </main>
-
-            <footer className="relative z-10 text-center py-8 text-slate-500 text-sm">
-                <p>&copy; {new Date().getFullYear()} Brian | Digital Image Processing Portfolio</p>
-            </footer>
+            </div>
         </div>
     );
 };

@@ -20,8 +20,18 @@ export default {
         'typewriter': 'typewriter 4.5s steps(60) infinite normal both',
         'fade-in': 'fadeIn 0.5s ease-out',
         'shift': 'shift 10s ease-in-out infinite alternate',
+        'border-glow': 'borderGlow 3s ease-in-out infinite alternate',
+        'spin-slow': 'spin 3s linear infinite',
       },
       keyframes: {
+        travel: {
+          '0%': { 'offset-distance': '0%' },
+          '100%': { 'offset-distance': '100%' },
+        },
+        borderGlow: {
+          '0%': { borderColor: '#ffffff', boxShadow: '0 0 20px rgba(255, 255, 255, 0.8)' },
+          '100%': { borderColor: '#000000', boxShadow: '0 0 20px rgba(0, 0, 0, 0.8)' },
+        },
         typewriter: {
           '0%': { width: '0%' },
           '90%': { width: '100%' }, // Finish typing at approx 4s

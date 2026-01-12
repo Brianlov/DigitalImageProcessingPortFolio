@@ -38,3 +38,15 @@ body {
   -webkit-text-stroke: 1px #fbbf24;
   color: #ffffff;
 }
+
+/* Hide Scrollbar Utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

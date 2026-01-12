@@ -18,27 +18,27 @@ const WeeklyLog = () => {
     };
 
     return (
-        <section className="w-full max-w-[800px] mx-auto">
+        <section id="weekly-log" className="w-full max-w-[800px] mx-auto scroll-mt-24">
             <div className="flex flex-col items-center mb-10 space-y-4">
-                <h3 className="text-3xl md:text-4xl text-accent text-center animate-pulse" style={{ fontFamily: '"French Script MT", cursive' }}>
+                <h3 className="text-3xl md:text-4xl text-amber-500 text-center animate-pulse" style={{ fontFamily: '"French Script MT", cursive' }}>
                     Let's Dive into my Learning Journey !
                 </h3>
                 <motion.button
                     onClick={() => setShowWeeks(!showWeeks)}
-                    className="w-fit relative overflow-hidden group rounded-xl px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 transition-colors focus:outline-none"
+                    className="w-fit relative overflow-hidden group rounded-xl px-8 py-4 bg-white/80 border border-slate-200 hover:bg-white transition-colors focus:outline-none shadow-sm"
                     whileTap={{ scale: 0.98 }}
                 >
                     {/* Ripple Effect Background */}
-                    <div className="absolute inset-0 bg-accent/20 opacity-0 group-active:opacity-100 transition-opacity duration-300 pointer-events-none rounded-xl" />
+                    <div className="absolute inset-0 bg-amber-500/20 opacity-0 group-active:opacity-100 transition-opacity duration-300 pointer-events-none rounded-xl" />
 
-                    <h2 className="text-3xl font-bold text-center text-white flex items-center justify-center gap-3 relative z-10 transition-transform duration-300 group-hover:scale-105">
-                        <Cpu className="text-accent w-8 h-8" />
+                    <h2 className="text-3xl font-bold text-center text-slate-900 flex items-center justify-center gap-3 relative z-10 transition-transform duration-300 group-hover:scale-105">
+                        <Cpu className="text-amber-500 w-8 h-8" />
                         Learning Journey
                         <motion.div
                             animate={{ rotate: showWeeks ? 180 : 0 }}
                             transition={{ duration: 0.3 }}
                         >
-                            <ChevronDown className="w-6 h-6 text-gray-400 group-hover:text-white" />
+                            <ChevronDown className="w-6 h-6 text-slate-900 group-hover:text-slate-900" />
                         </motion.div>
                     </h2>
                 </motion.button>
@@ -57,7 +57,7 @@ const WeeklyLog = () => {
                             <motion.div
                                 key={week.id}
                                 initial={false}
-                                className="border-b border-gray-800"
+                                className="border-b border-slate-200"
                             >
                                 <button
                                     onClick={() => toggleWeek(week.id)}
@@ -66,22 +66,22 @@ const WeeklyLog = () => {
                                     {/* Header: Week Label & Title */}
                                     <div className="flex items-center justify-between mb-4">
                                         <div className="flex items-center gap-4">
-                                            <span className="text-xs font-bold text-black px-2 py-1 bg-accent rounded-md uppercase tracking-wider">
+                                            <span className="text-xs font-bold text-black px-2 py-1 bg-amber-500 rounded-md uppercase tracking-wider">
                                                 Week {week.id}
                                             </span>
-                                            <h3 className={`text-2xl font-bold transition-colors ${expandedWeeks.includes(week.id) ? 'text-accent' : 'text-white'}`}>
+                                            <h3 className={`text-2xl font-bold transition-colors ${expandedWeeks.includes(week.id) ? 'text-amber-600' : 'text-slate-900'}`}>
                                                 {week.title.replace(/Week \d+: /, '')}
                                             </h3>
                                         </div>
                                     </div>
 
                                     {/* Summary Text */}
-                                    <p className="text-gray-400 font-medium pl-1 mb-6">
+                                    <p className="text-slate-900 font-medium pl-1 mb-6">
                                         {week.summary}
                                     </p>
 
                                     {/* Image: ALWAYS VISIBLE, 600px Height, 800px Width (via container) */}
-                                    <div className="w-full h-[600px] rounded-xl overflow-hidden bg-gray-900 border border-gray-800 mb-6 mx-auto relative group-hover:shadow-lg transition-all">
+                                    <div className="w-full h-[600px] rounded-xl overflow-hidden bg-slate-100 border border-slate-200 mb-6 mx-auto relative group-hover:shadow-lg transition-all">
                                         <img
                                             src={week.image}
                                             alt="DIP Concept"
@@ -92,7 +92,7 @@ const WeeklyLog = () => {
                                     {/* Chevron: Below the image */}
                                     <div className="flex justify-center w-full">
                                         <ChevronDown
-                                            className={`w-8 h-8 text-gray-500 transition-transform duration-300 ${expandedWeeks.includes(week.id) ? 'rotate-180 text-accent' : 'group-hover:text-accent'}`}
+                                            className={`w-8 h-8 text-slate-900 transition-transform duration-300 ${expandedWeeks.includes(week.id) ? 'rotate-180 text-amber-500' : 'group-hover:text-amber-500'}`}
                                         />
                                     </div>
                                 </button>
@@ -111,12 +111,12 @@ const WeeklyLog = () => {
                                             transition={{ duration: 0.3 }}
                                         >
                                             <div className="pb-8">
-                                                <div className="bg-white/5 border border-white/10 text-white p-6 rounded-lg shadow-inner">
-                                                    <div className="flex items-start gap-2 mb-3 text-accent text-sm font-bold uppercase tracking-wider">
+                                                <div className="text-slate-900 px-6 py-2">
+                                                    <div className="flex items-start gap-2 mb-3 text-slate-900 text-sm font-bold uppercase tracking-wider">
                                                         <BookOpen size={16} className="mt-0.5" />
                                                         Learning Details
                                                     </div>
-                                                    <div className="text-gray-300 leading-relaxed text-lg space-y-6 text-justify">
+                                                    <div className="text-slate-900 leading-relaxed text-lg space-y-6 text-justify">
                                                         {week.details}
                                                     </div>
                                                 </div>
