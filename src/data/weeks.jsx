@@ -224,6 +224,17 @@ export const weeks = [
                         <ZoomableImage src={week3Filters} alt="Linear vs Non-Linear Filters Comparison" className="w-full object-cover" />
                     </div>
                 </div>
+                <Quiz
+                    question="Which of the following statements best describes the primary purpose of Histogram Equalization?"
+                    options={[
+                        "It reduces noise in an image by replacing pixels with the median value of their neighborhood.",
+                        "It redistributes pixel intensity values to spread them across the full dynamic range, thereby enhancing global contrast.",
+                        "It shifts the image spatially along the x and y axes without altering pixel intensity.",
+                        "It separates the image into frequency components to remove high-frequency edges."
+                    ]}
+                    correctAnswerIndex={1}
+                    explanation="Histogram equalization enhances contrast by redistributing pixel intensities based on the cumulative distribution function (CDF), effectively spreading frequencies evenly across the available intensity range."
+                />
             </div>
         ),
         image: week3Intro
@@ -331,6 +342,17 @@ export const weeks = [
                         <li><strong>SSIM (Structural Similarity Index):</strong> Measures structural similarity (closer to 1 is better).</li>
                     </ul>
                 </div>
+                <Quiz
+                    question="Why is Wiener Filtering often preferred over Inverse Filtering for restoring images degraded by motion blur and noise?"
+                    options={[
+                        "It ignores the degradation function and focuses solely on sharpening edges.",
+                        "It is computationally simpler and faster than Inverse Filtering.",
+                        "It minimizes noise amplification by considering both the degradation function and the statistical noise-to-signal ratio.",
+                        "It is a non-linear filter that removes salt-and-pepper noise by sorting pixel values."
+                    ]}
+                    correctAnswerIndex={2}
+                    explanation="Unlike Inverse Filtering, which can amplify noise significantly when the degradation function values are small, Wiener filtering is a statistical approach that balances restoration and noise reduction by using the noise-to-signal ratio."
+                />
             </div>
         ),
         image: week5Intro
@@ -373,6 +395,17 @@ export const weeks = [
                         Practically implemented using the <code>affine2d</code> function to create a geometric transformation object from the matrix, followed by <code>imwarp</code> to apply the spatial mapping. Since these transformations often map pixels to non-integer coordinates, interpolation methods—such as Nearest Neighbor, Bilinear, or Bicubic—are required to estimate new pixel intensity values for a smooth output.
                     </p>
                 </div>
+                <Quiz
+                    question="When resizing an image using geometric transformations, which interpolation method produces the smoothest and highest-quality results but is also the most computationally intensive?"
+                    options={[
+                        "Nearest Neighbor Interpolation",
+                        "Bilinear Interpolation",
+                        "Bicubic Interpolation",
+                        "Affine Interpolation"
+                    ]}
+                    correctAnswerIndex={2}
+                    explanation="Bicubic interpolation uses the weighted average of the sixteen nearest pixels, producing smooth and visually pleasing images, whereas Nearest Neighbor is fast but blocky."
+                />
             </div>
         ),
         image: week6Intro
@@ -468,6 +501,17 @@ export const weeks = [
                         </table>
                     </div>
                 </div>
+                <Quiz
+                    question="Which color model is described as a perceptual model that is intuitive for human vision because it decouples color information (chrominance) from brightness (luminance)?"
+                    options={[
+                        "HSV (Hue, Saturation, Value)",
+                        "CMY (Cyan, Magenta, Yellow)",
+                        "RGB (Red, Green, Blue)",
+                        "Raw Bitmap"
+                    ]}
+                    correctAnswerIndex={0}
+                    explanation="The HSV model separates the intensity (Value) from the color information (Hue and Saturation), making it more intuitive for human perception and useful for segmentation tasks compared to the hardware-centric RGB model."
+                />
             </div>
         ),
         image: week6Cover
@@ -495,6 +539,17 @@ export const weeks = [
                         In 2D images, the transform produces four subbands: LL (overall structure and smooth regions), LH (vertical details), HL (horizontal details), and HH (diagonal details and noise).
                     </p>
                 </div>
+                <Quiz
+                    question="What is the primary advantage of the Wavelet Transform over the standard Fourier Transform (FT) in image processing?"
+                    options={[
+                        "It provides excellent energy compaction using only cosine functions.",
+                        "It analyzes the image globally and removes all spatial information.",
+                        "It is strictly used for converting color spaces and cannot handle frequency data.",
+                        "It provides both spatial (time) and frequency localization, allowing for multi-resolution analysis."
+                    ]}
+                    correctAnswerIndex={3}
+                    explanation="While the Fourier Transform provides global frequency analysis but lacks spatial localization, the Wavelet Transform overcomes this by providing analysis that is localized in both time (space) and frequency."
+                />
             </div>
         ),
         image: week7Intro
@@ -598,6 +653,17 @@ export const weeks = [
                         </table>
                     </div>
                 </div>
+                <Quiz
+                    question="In lossy image compression, which type of redundancy is exploited by removing high-frequency details that are imperceptible to the human eye?"
+                    options={[
+                        "Spatial Redundancy",
+                        "Spectral Redundancy",
+                        "Psycho-visual Redundancy",
+                        "Temporal Redundancy"
+                    ]}
+                    correctAnswerIndex={2}
+                    explanation='Psycho-visual redundancy refers to information that the human eye cannot easily perceive. Lossy compression removes this "invisible" data (like subtle details in textures) to reduce file size'
+                />
             </div>
         ),
         image: week8Intro

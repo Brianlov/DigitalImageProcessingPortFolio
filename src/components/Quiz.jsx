@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, XCircle, RefreshCw, Trophy } from 'lucide-react';
 
-const Quiz = ({ question, options, correctAnswerIndex }) => {
+const Quiz = ({ question, options, correctAnswerIndex, explanation }) => {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [showSuccess, setShowSuccess] = useState(false);
 
@@ -85,7 +85,7 @@ const Quiz = ({ question, options, correctAnswerIndex }) => {
                             initial={{ scale: 0.5, opacity: 0, y: 50 }}
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.8, opacity: 0 }}
-                            className="bg-white border-2 border-amber-500 p-8 rounded-2xl shadow-2xl flex flex-col items-center gap-4 text-center pointer-events-auto"
+                            className="bg-white border-2 border-amber-500 p-8 rounded-2xl shadow-2xl flex flex-col items-center gap-4 text-center pointer-events-auto max-w-md mx-4"
                         >
                             <motion.div
                                 initial={{ rotate: -180, scale: 0 }}
@@ -97,7 +97,7 @@ const Quiz = ({ question, options, correctAnswerIndex }) => {
 
                             <div>
                                 <h2 className="text-3xl font-bold text-slate-900 mb-1">Correct!</h2>
-                                <p className="text-slate-600">You mastered the basics of DIP.</p>
+                                <p className="text-slate-600 text-pretty">{explanation || "You mastered this concept!"}</p>
                             </div>
 
                             <button
