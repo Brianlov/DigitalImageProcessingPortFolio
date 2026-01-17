@@ -44,6 +44,7 @@ const Navbar = () => {
         { name: 'Home', action: () => window.location.reload() },
         { name: 'About Me', id: 'home' },
         { name: 'Reflection', id: 'reflection' },
+        { name: 'Padlet Contributions', id: 'padlet-contribution' },
         { name: 'Learning Journey', id: 'weekly-log' },
     ];
 

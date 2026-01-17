@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
+import ZoomableImage from './ZoomableImage';
+
+import groupPhoto from '../assets/DIP_GroupPhoto.jpeg';
 
 const Reflection = () => {
     return (
@@ -23,6 +26,15 @@ const Reflection = () => {
                         <h2 className="text-2xl font-bold text-slate-900 tracking-wide">
                             Course Reflection
                         </h2>
+                    </div>
+
+                    {/* Group Photo */}
+                    <div className="w-full mb-6 rounded-xl overflow-hidden shadow-md border border-slate-200">
+                        <ZoomableImage
+                            src={groupPhoto}
+                            alt="DIP Class Group"
+                            className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+                        />
                     </div>
 
                     <div className="space-y-4 text-slate-700 leading-relaxed text-justify">

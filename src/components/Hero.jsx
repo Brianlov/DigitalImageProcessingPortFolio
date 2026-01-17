@@ -35,7 +35,7 @@ const Hero = () => {
 
                 <div className="mt-2 w-fit">
                     <div className="overflow-hidden whitespace-nowrap animate-typewriter w-0">
-                        <p className="text-2xl md:text-3xl text-slate-600 font-casual tracking-wide">
+                        <p className="text-[29px] md:text-[35px] text-slate-600 font-casual tracking-wide">
                             A Final Year Computer Engineering student studying in UTeM.
                         </p>
                     </div>
@@ -45,7 +45,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.5, duration: 0.8 }}
-                    className="mt-6 p-6 rounded-lg bg-white/90 border-l-4 border-amber-500 shadow-2xl w-full backdrop-blur-md"
+                    className="mt-[42px] p-6 rounded-lg bg-white/90 border-l-4 border-amber-500 shadow-2xl w-full backdrop-blur-md"
                 >
                     <h3 className="text-lg font-bold text-slate-900 mb-2">Introduction</h3>
                     <p className="text-slate-700 leading-relaxed text-base">
